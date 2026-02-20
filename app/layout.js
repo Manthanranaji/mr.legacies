@@ -33,6 +33,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata = {
+  metadataBase: new URL('https://mrlegacies-official.vercel.app'),
   title: 'MR Legacies - Building towards Future',
   description: 'Tech, Robotics, & more. Buidling towards future world.',
   openGraph: {
