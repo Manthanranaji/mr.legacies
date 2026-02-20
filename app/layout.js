@@ -35,6 +35,11 @@ const playfair = Playfair_Display({
 export const metadata = {
   title: 'MR Legacies - Building towards Future',
   description: 'Tech, Robotics, & more. Buidling towards future world.',
+  openGraph: {
+    title: 'MR Legacies - Building towards Future',
+    description: 'Tech, Robotics, & more. Buidling towards future world.',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
+  },
 }
 
 export default function RootLayout({ children }) {
