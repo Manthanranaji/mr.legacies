@@ -36,81 +36,89 @@ export default function Serv(){
     ];
 
     return(
-        <div className="bg-gradient-to-br from-[#c9b89a] via-[#e0d4c0] to-[#f0e9dc] md:bg-gradient-to-br md:from-[#d4c4a8] md:via-[#e8ddc8] md:to-[#f5eee3] min-h-screen pb-16">
+        <div className="bg-[#09090B] min-h-screen pb-16">
             <NavBar />
         
-            <div className="flex items-center gap-3 px-4 py-8 max-w-6xl mx-auto">
-                <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#7f7053]">   
-                </div>
-                <span className="font-playfair text-xl md:text-2xl font-bold text-[#5a4e3a]">Web Services</span>
-                <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#7f7053]">
-                </div>
+            {/* Header */}
+            <div className="pt-28 pb-8 text-center px-6">
+                <h1 className="text-4xl md:text-5xl font-bold text-[#FAFAFA]">Web Services</h1>
+                <p className="mt-3 text-[#A1A1AA]">Clean, fast, modern websites. Built with Next.js.</p>
             </div>
 
-            <div className="max-w-4xl mx-auto px-4 space-y-8 animate-fade-in-up animation-delay-600">
+            {/* Services */}
+            <div className="max-w-4xl mx-auto px-4 space-y-6">
                 {services.map((service, index) => (
-                    <div key={index} className="grid grid-cols-1 gap-4">
-                        {/* Header Card */}
-                        <div className="flex items-center gap-4 bg-gradient-to-b from-white/20 to-white/5 border border-white/20 shadow-lg rounded-2xl p-4 hover:shadow-xl transition-all duration-300">
+                    <div key={index} 
+                        className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6
+                                   hover:border-[#6EE7B730] hover:shadow-[0_0_40px_#6EE7B715]
+                                   transition-all duration-300">
+                        
+                        <div className="flex items-center gap-3 mb-3">
                             {service.icon}
-                            <h3 className="text-stone-600 font-playfair font-bold text-base md:text-lg">
+                            <h3 className="text-[#FAFAFA] font-bold text-base md:text-lg">
                                 {service.title}
                             </h3>
                         </div>
-                        
-                        {/* Content Card */}
-                        <div className="bg-gradient-to-b from-white/20 to-white/5 border border-white/20 shadow-lg rounded-2xl p-6 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300">
-                            <p className="text-sm font-outfit text-stone-700 leading-relaxed mb-4">
-                                {service.description}
-                            </p>
-                            
-                            <div className="flex items-center justify-between flex-wrap gap-4">
-                                <h2 className="text-2xl font-bold text-stone-900">
-                                    {service.price}
-                                </h2>
-                                
-                            </div>
+
+                        <p className="text-sm text-[#A1A1AA] leading-relaxed mb-4">
+                            {service.description}
+                        </p>
+
+                        <div className="flex items-center justify-between pt-4 border-t border-[#27272A]">
+                            <span className="text-2xl font-bold text-[#6EE7B7]">
+                                {service.price}
+                            </span>
+                            <Link href="/about"
+                                className="bg-[#6EE7B7] text-[#09090B] font-semibold px-4 py-2 
+                                           rounded-lg text-sm hover:bg-[#6EE7B7]/90 
+                                           hover:shadow-[0_0_20px_#6EE7B750]
+                                           transition-all duration-200">
+                                Get Started
+                            </Link>
                         </div>
                     </div>
                 ))}
             </div>
 
-            {/* FAQ Section */}
+            {/* FAQ */}
             <div className="max-w-4xl mx-auto px-4 mt-16">
-                <h2 className="font-playfair text-2xl font-bold text-[#5a4e3a] text-center mb-8">
+                <h2 className="text-2xl font-bold text-[#FAFAFA] text-center mb-8">
                     Frequently Asked Questions
                 </h2>
                 
                 <div className="space-y-4">
-                    <div className="bg-gradient-to-b from-white/20 to-white/5 border border-white/20 shadow-lg rounded-2xl p-6">
-                        <h3 className="font-playfair font-bold text-stone-700 mb-2">How long does delivery take?</h3>
-                        <p className="text-sm text-stone-600">Single page sites: 3-5 days. Multi-page sites: 7-10 days. Timeline depends on content availability and revision rounds.</p>
-                    </div>
-                    
-                    <div className="bg-gradient-to-b from-white/20 to-white/5 border border-white/20 shadow-lg rounded-2xl p-6">
-                        <h3 className="font-playfair font-bold text-stone-700 mb-2">Do you provide hosting?</h3>
-                        <p className="text-sm text-stone-600">I provide deployment guidance and help you set up on Vercel (free hosting). Domain registration is separate.</p>
-                    </div>
-                    
-                    <div className="bg-gradient-to-b from-white/20 to-white/5 border border-white/20 shadow-lg rounded-2xl p-6">
-                        <h3 className="font-playfair font-bold text-stone-700 mb-2">Can I upgrade later?</h3>
-                        <p className="text-sm text-stone-600">Yes! You can add pages, CMS, or additional features anytime. Just pay the difference.</p>
-                    </div>
-                    <div className="relative h-[50px] w-full">
-                    <img
-                    height={64}
-                    width={64}
-                    src="/billu.png"
-                    alt="cat"
-                    className="bg-transparent absolute mt-8 md:mt-6 ml-[130px] md:h-[75px] md:w-[75px] animate-wiggle md:ml-[400px] z-50"
-                />
+                    {[
+                        {
+                            q: "How long does delivery take?",
+                            a: "Single page sites: 3-5 days. Multi-page sites: 7-10 days. Timeline depends on content availability and revision rounds."
+                        },
+                        {
+                            q: "Do you provide hosting?",
+                            a: "I provide deployment guidance and help you set up on Vercel (free hosting). Domain registration is separate."
+                        },
+                        {
+                            q: "Can I upgrade later?",
+                            a: "Yes! You can add pages, CMS, or additional features anytime. Just pay the difference."
+                        }
+                    ].map((faq) => (
+                        <div key={faq.q} 
+                            className="bg-[#18181B] border border-[#27272A] rounded-2xl p-6
+                                       hover:border-[#6EE7B730] transition-all duration-300">
+                            <h3 className="font-bold text-[#FAFAFA] mb-2">{faq.q}</h3>
+                            <p className="text-sm text-[#A1A1AA]">{faq.a}</p>
+                        </div>
+                    ))}
                 </div>
-                <div className="flex mt-24 ml-24 h-16 w-32 rounded-2xl md:ml-[370px] items-center text-center bg-gradient-to-b from-white/30 to-white/3 border border-white/20 md:border-white/50 shadow-sm hover:scale-105 transition-transform duration-300 hover:shadow-lg">
-                <Link
-                href={"/about"}
-                className="ml-8 font-outfit font-bold text-lg text-stone-700"
-                >Contact</Link>
-                </div>
+
+                {/* Contact CTA */}
+                <div className="flex justify-center mt-16">
+                    <Link href="/about"
+                        className="bg-[#18181B] border border-[#27272A] text-[#FAFAFA] 
+                                   font-semibold px-8 py-4 rounded-2xl text-lg
+                                   hover:border-[#6EE7B740] hover:shadow-[0_0_30px_#6EE7B720]
+                                   transition-all duration-300">
+                        Contact Me →
+                    </Link>
                 </div>
             </div>
         </div>

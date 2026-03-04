@@ -9,7 +9,6 @@ async function getContent() {
     price,
     "imageUrl": images[0].asset->url
   }`
-
   return await client.fetch(query)
 }
 
@@ -17,37 +16,59 @@ export default async function Products() {
   const content = await getContent()
 
   return (
-    <div className="bg-gradient-to-br from-[#c9b89a] via-[#e0d4c0] to-[#f0e9dc] md:bg-gradient-to-br md:from-[#d4c4a8] md:via-[#e8ddc8] md:to-[#f5eee3] min-h-screen">
+    <div className="bg-[#09090B] min-h-screen">
       <NavBar />
       
-      <h1 className="text-3xl md:text-4xl font-bold animate-fade-in-up animation-delay-400 bg-gradient-to-b from-stone-900 via-stone-800 to-400 text-transparent bg-clip-text font-montserrat text-center pt-8 pb-2">
-        Products
-      </h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-16">
+      {/* Header */}
+      <div className="pt-36 pb-16 text-center px-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#FAFAFA]">
+          Products
+        </h1>
+        <p className="mt-3 text-[#A1A1AA] text-sm md:text-base">
+          Built different. Designed to last.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 px-6 md:px-16 pb-24">
         {content.map(product => (
-          <Link 
-            href={`/products/${product._id}`} 
-            key={product._id}
-          >
-            <div className="rounded-xl md:h-[570px] shadow-xl hover:shadow-2xl border border-white/40 p-6 hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <Link href={`/products/${product._id}`} key={product._id}>
+            <div className="bg-[#18181B] border border-[#27272A] rounded-2xl overflow-hidden
+                            hover:border-[#6EE7B730] hover:-translate-y-1
+                            hover:shadow-[0_0_40px_#6EE7B715]
+                            transition-all duration-300 cursor-pointer">
+              
+              {/* Image */}
               {product.imageUrl && (
                 <img
                   src={product.imageUrl}
                   alt={product.name}
-                  className="w-full h-48 md:h-[400px] object-cover rounded-lg"
+                  className="w-full h-48 md:h-72 object-cover"
                 />
               )}
-              <h2 className="text-2xl font-bold text-stone-700 font-playfair mt-4">{product.name}</h2>
-              <p className="text-lg text-gray-600 font-bold">₹{product.price}</p>
+              
+              {/* Info */}
+              <div className="p-6">
+                <h2 className="text-xl font-bold text-[#FAFAFA]">{product.name}</h2>
+                <p className="mt-1 text-[#6EE7B7] font-semibold">₹{product.price}</p>
+              </div>
+
             </div>
           </Link>
         ))}
-            
-      <Link href="/serv" className='h-16 w-32 md:h-32 md:w-[300px] md:text-3xl ml-20 font-montserrat md:ml-[460px] md:mt-16 mb-8 md:rounded-2xl shadow-lg md:text-xl bg-gradient-to-b from-white/40 via-transparent to-white/40 border border-white/30 rounded-xl flex items-center justify-center hover:shadow-xl hover:scale-105 transition-transform duration-300'>
-        Web Dev
-      </Link>
       </div>
+
+      {/* Web Dev CTA */}
+      <div className="flex justify-center pb-24">
+        <Link href="/serv" 
+          className="bg-[#18181B] border border-[#27272A] text-[#FAFAFA] 
+                     font-semibold px-8 py-4 rounded-2xl text-lg
+                     hover:border-[#6EE7B740] hover:shadow-[0_0_30px_#6EE7B720]
+                     transition-all duration-300">
+          View Web Services →
+        </Link>
+      </div>
+
     </div>
   )
 }

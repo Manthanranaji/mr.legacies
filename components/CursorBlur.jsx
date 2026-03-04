@@ -31,7 +31,7 @@ export default function CursorBlur(){
     return(
 
         <div className="cursor-blur pointer-events-none fixed top-20 left-16 w-[120px] h-[120px] rounded-full 
-        bg-gradient-to-br from-white/60 to-white/30 blur-[80px] opacity-80 z-0 border border-white
+        bg-transparent
         ">
 
         </div>

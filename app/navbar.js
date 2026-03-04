@@ -1,33 +1,49 @@
+'use client'
 import Link from "next/link";
-import Image from "next/image";
+import { useState } from "react";
 
 export default function NavBar(){
+    const [open, setOpen] = useState(false)
+    
     return(
-        <div className="relative z-50">
-            <div className="w-full relative h-24 flex justify-between items-center px-6 md:px-12 text-sm md:text-lg backdrop-blur-xl bg-gradient-to-br from-white/30 to-white/10 border border-white/20 shadow-[0_8px_32px_4px_rgba(0,0,0,0.1),inset_0_2px_8px_2px_rgba(255,255,255,0.3),inset_0_-2px_8px_2px_rgba(0,0,0,0.1)] md:border-white/5 md:shadow-[inset_0_0_2px_8px_rgba(255,255,255,0.7), inset_2px_0_2px_4px_rgba(255,255,255,0.2), inset_-2px_0_2px)4px_rgba(255,255,255,0.2), inset_0_2px_8px_2px_rgba(255,255,255,0.3),inset_0_-2px_8px_2px_rgba(0,0,0,0.1)]">
-                <img
-                    height={64}
-                    width={64}
-                    src="/billu.png"
-                    alt="cat"
-                    className="bg-transparent absolute mt-20 ml-[240px] md:h-[75px] md:w-[75px] animate-wiggle md:ml-[1145px] z-50"
-                />
-                <div className="md:hidden flex flex-col text-center leading-tight [text-shadow:_2px_2px_0_rgba(201,184,154,1)]">
-                    <span className="font-semibold select-none">MR</span>
-                    <span className="text-xs select-none">Legacies</span>
-                </div>
-                <span className="hidden md:flex font-extrabold text-2xl font-playfair bg-gradient-to-b from-stone-800 to-stone-500 text-transparent bg-clip-text [text-shadow:_3px_3px_0_rgba(201,184,154,0.4),_6px_6px_0_rgba(201,184,154,0.2),_9px_9px_0_rgba(201,184,154,0.1)]">MR Legacies</span>
+        <div className="fixed top-0 left-0 right-0 z-50">
+            {/* Main bar */}
+            <div className="w-full h-24 flex justify-between items-center px-6 md:px-12 bg-[#09090B]/80 backdrop-blur-md border-b border-[#27272A]">
                 
-                <div className="flex gap-4 md:gap-8 text-stone-900 font-semibold">
-                    <Link href="/" className="hover:text-[#c9b89a] transition-colors">
-                        Home
+                <span className="font-extrabold text-lg md:text-2xl text-[#FAFAFA]">
+                    MR Legacies
+                </span>
+                
+                {/* Desktop links */}
+                <div className="hidden md:flex gap-8 text-[#A1A1AA] text-sm font-medium">
+                    <Link href="/" className="hover:text-[#FAFAFA] transition-colors">Home</Link>
+                    <Link href="/products" className="hover:text-[#FAFAFA] transition-colors">Products</Link>
+                    <Link href="/about" className="hover:text-[#FAFAFA] transition-colors">About</Link>
+                </div>
+
+                <div className="flex items-center gap-3">
+                    <Link href="/serv" 
+                        className="bg-[#6EE7B7] text-[#09090B] font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#6EE7B7]/90 hover:shadow-[0_0_20px_#6EE7B750] transition-all duration-200">
+                        Hire Me
                     </Link>
-                    <Link href="/products" className="hover:text-[#c9b89a] transition-colors">
-                        Products
-                    </Link>
-                    <Link href="/about" className="hover:text-[#c9b89a] transition-colors">
-                        About
-                    </Link>
+
+                    {/* Hamburger */}
+                    <button 
+                        onClick={() => setOpen(!open)}
+                        className="md:hidden flex flex-col gap-1.5 p-1">
+                        <span className={`w-5 h-0.5 bg-[#FAFAFA] block transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
+                        <span className={`w-5 h-0.5 bg-[#FAFAFA] block transition-all duration-300 ${open ? 'opacity-0' : ''}`}></span>
+                        <span className={`w-5 h-0.5 bg-[#FAFAFA] block transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile menu */}
+            <div className={`md:hidden bg-[#09090B]/95 backdrop-blur-md border-b border-[#27272A] transition-all duration-300 overflow-hidden ${open ? 'max-h-48' : 'max-h-0'}`}>
+                <div className="flex flex-col px-6 py-4 gap-4 text-[#A1A1AA] font-medium">
+                    <Link href="/" onClick={() => setOpen(false)} className="hover:text-[#FAFAFA] transition-colors">Home</Link>
+                    <Link href="/products" onClick={() => setOpen(false)} className="hover:text-[#FAFAFA] transition-colors">Products</Link>
+                    <Link href="/about" onClick={() => setOpen(false)} className="hover:text-[#FAFAFA] transition-colors">About</Link>
                 </div>
             </div>
         </div>

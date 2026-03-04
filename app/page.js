@@ -18,34 +18,34 @@ export default async function Home() {
   const products = await getProducts()
 
   return (
-    <div className="bg-gradient-to-br from-[#c9b89a] via-[#e0d4c0] to-[#f0e9dc] md:bg-gradient-to-br md:from-[#d4c4a8] md:via-[#e8ddc8] md:to-[#f5eee3] min-h-screen">
+    <div className="bg-[#09090B] min-h-screen">
       <NavBar/>
       
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-8 pt-24 pb-12 text-center">
+      <div className="max-w-7xl mx-auto px-8 pt-36 pb-12 text-center">
       <h1 className="font-playfair animate-fade-in-up animation-delay-400 weight-300 text-5xl md:text-8xl font-extrabold mb-8">
-  <span className="bg-gradient-to-b from-stone-800 to-stone-500 bg-clip-text select-none text-transparent">
+  <span className="text-[#FAFAFA]">
     MR
   </span>{' '}
-  <span className='font-semibold text-2xl select-none text-stone-700'>Legacies...</span>
+  <span className='font-semibold text-2xl select-none text-[#A1A1AA]'>Legacies</span>
 </h1>
-      <div className='md:h-12 md:w-[700px] md:ml-[240px] animate-fade-in-up animation-delay-600 select-none backdrop-blur-xl rounded-xl bg-gradient-to-br from-white/30 to-white/10 border border-white/20 shadow-[0_8px_32px_4px_rgba(0,0,0,0.1),inset_0_2px_8px_2px_rgba(255,255,255,0.3),inset_0_-2px_8px_2px_rgba(0,0,0,0.1)] md:rounded-2xl hover:scale-105 transition-transform duration-300'>
-         <p className="font-sans text-xl font-bold text-stone-600 md:mt-2">
-          Building towards future...
+      <div className='md:h-16 mt-12 h-24 md:w-[700px] md:ml-[240px] animate-fade-in-up animation-delay-600 select-none backdrop-blur-xl rounded-xl bg-[#18181B] border border-[#27272A] md:rounded-2xl hover:scale-105 transition-transform duration-300'>
+         <p className="font-playfair text-xl font-bold text-[#A1A1AA] mt-4">
+         No team. No funding. No shortcuts. Just shipping.
         </p>
         </div>
       </div>
 
-      <div className='h-[1px] w-full bg-gradient-to-r from-transparent via-[#AA8B5B]/30 to-transparent'></div>
+      <div className='h-[1px] md:mt-8 mt-12 w-full bg-gradient-to-r from-transparent via-[#6EE7B7]/30 to-transparent'></div>
 
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto px-8 md:pt-20 pb-12 text-center transform transition-transform duration-700 hover:scale-[1.01]">
+      <div className="max-w-7xl mx-auto px-8 md:mt-0 md:pt-24 mt-20 pb-12 text-center transform transition-transform duration-700 hover:scale-[1.01]">
         <h2 className="font-serif text-3xl font-semibold text-stone-800 mb-8">
           
         </h2>
                 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:ml-8">
           {products.map((product) => (
             <div 
               key={product._id} 
@@ -60,10 +60,10 @@ export default async function Home() {
               )}
               <div className='relative flex items-end transform transition-transform duration-500 group-hover:translate-y-[285px] select-none md:group-hover:translate-y-[440px]'>
               <div className="w-full md:p-12 p-6 backdrop-blur-md bg-white/10 group-hover:bg-white/15 group-hover:backdrop-blur-sm shadow-[inset_0_1px_0_0_rgba(255,255,255,0.5)]">
-                <h2 className="font-playfair md:font-outfit md:text-4xl text-2xl font-semibold text-[#FDFBF7] drop-shadow-lg mb-2">
+                <h2 className="font-playfair md:font-outfit md:text-4xl text-2xl font-semibold text-[#FAFAFA] drop-shadow-lg mb-2">
                   {product.name}
                 </h2>
-                <p className="font-sans text-xl font-bold text-gray-400 group-hover:text-gray-600">
+                <p className="font-sans text-xl font-bold text-gray-400 group-hover:text-[#A1A1AA]">
                   ₹{product.price}
                 </p>
               </div>
@@ -72,11 +72,11 @@ export default async function Home() {
           ))}
         </div>
       </div>
-      <div className='grid grid-cols-2 gap-8 text-extrabold font-outfit font-extrabold text-stone-700'>
-      <Link href="/products" className='h-16 w-32 md:h-32 md:w-[300px] md:text-3xl md:ml-48 ml-4 mb-4 md:rounded-2xl md:text-xl shadow-lg  bg-gradient-to-b text-center from-white/40 via-transparent to-white/40 border border-white/30 rounded-xl flex items-center justify-center hover:shadow-xl hover:scale-105 transition-transform duration-300'>
+      <div className='grid grid-cols-2 gap-8 mt-8 md:mt-16 ml-8 text-extrabold font-outfit font-extrabold text-[#FAFAFA]'>
+      <Link href="/products" className='h-16 w-32 md:h-32 md:w-[300px] md:text-3xl md:ml-48 ml-4 mb-4 md:rounded-2xl md:text-xl shadow-lg  bg-[#18181B] border border-[#27272A] rounded-xl flex items-center justify-center hover:shadow-xl hover:scale-105 transition-transform duration-300'>
         Products
       </Link>
-      <Link href="/serv" className='h-16 w-32 md:h-32 md:w-[300px] md:text-3xl ml-4 md:ml-32 mb-4 md:rounded-2xl shadow-lg md:text-xl bg-gradient-to-b from-white/40 via-transparent to-white/40 border border-white/30 rounded-xl flex items-center justify-center hover:shadow-xl hover:scale-105 transition-transform duration-300'>
+      <Link href="/serv" className='h-16 w-32 md:h-32 md:w-[300px] md:text-3xl ml-4 md:ml-32 mb-4 md:rounded-2xl shadow-lg md:text-xl bg-[#18181B] border border-[#27272A] rounded-xl flex items-center justify-center hover:shadow-xl hover:scale-105 transition-transform duration-300'>
         Web Dev
       </Link>
       </div>
