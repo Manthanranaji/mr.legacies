@@ -21,25 +21,13 @@ export default async function Home() {
       
       {/* Hero — old design on desktop, new design on mobile */}
       <div className="max-w-7xl mx-auto px-8 pt-36 pb-12 text-center">
-        
-        {/* Desktop hero — your original */}
-        <div className="hidden md:block">
-          <h1 className="font-playfair animate-fade-in-up animation-delay-400 text-8xl font-extrabold mb-8">
-            <span className="text-[#FAFAFA]">MR</span>{' '}
-            <span className="font-semibold text-2xl select-none text-[#A1A1AA]">Legacies</span>
-          </h1>
-          <div className="h-16 mt-12 w-[700px] ml-[240px] animate-fade-in-up animation-delay-600 select-none backdrop-blur-xl rounded-2xl bg-[#18181B] border border-[#27272A] hover:scale-105 transition-transform duration-300">
-            <p className="font-playfair text-xl font-bold text-[#A1A1AA] mt-4">
-              No team. No funding. No shortcuts. Just shipping.
-            </p>
-          </div>
-        </div>
+                
 
         {/* Mobile hero — new clean design */}
-        <div className="md:hidden">
-          <h1 className="font-playfair animate-fade-in-up animation-delay-400 text-6xl font-extrabold mb-6">
+        <div>
+          <h1 className="font-playfair animate-fade-in-up animation-delay-400 text-6xl md:text-8xl font-extrabold mb-6">
             <span className="text-[#FAFAFA]">MR</span>{' '}
-            <span className="font-semibold text-xl select-none text-[#A1A1AA]">Legacies</span>
+            <span className="font-semibold text-xl md:text-3xl select-none text-[#A1A1AA]">Legacies</span>
           </h1>
           <p className="animate-fade-in-up animation-delay-600 font-playfair text-lg text-[#A1A1AA] mt-6 select-none">
             No team. No funding. No shortcuts. Just shipping.
